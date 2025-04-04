@@ -1,0 +1,17 @@
+ // Append form data
+   const formData = new FormData();
+    // formData.append('name', user.name);
+    // formData.append('lastname', user.lastname);
+    // formData.append('email', user.email);
+    // formData.append('phone_number', user.phone_number);
+    // formData.append('password', user.password);
+    // formData.append('confirmPassword', user.confirmPassword);
+    // formData.append('gender', user.gender);
+    // formData.append('dob', user.dob);
+    // formData.append('sog', user.sog);
+    // formData.append('address', user.address);
+    
+    // // Append profile image if available
+    // if (userFile && userFile !== avatar) {
+    //     formData.append('profile_image', userFile); // send the actual file (binary data)
+    // }
