@@ -7,10 +7,10 @@ const initialState = {
   deposit: null,
   withdrawal: null,
   transfer: null,
-  status: 'IDLE', // Represents the status of async operations (IDLE, PENDING, SUCCESS, FAILED)
-  error: null,    // Store errors related to any operations
-  pin: null,      // Store the user's hashed PIN for verification
-  balance: parseFloat(sessionStorage.getItem('balance')) || 0, // Load balance from sessionStorage if available
+  status: 'IDLE', 
+  error: null,    
+  pin: null,     
+  balance: parseFloat(sessionStorage.getItem('balance')) || 0, 
 };
 
 // Async thunk for creating a deposit
@@ -24,10 +24,10 @@ export const createDeposit = createAsyncThunk(
       if (error) throw error;
 
       const updatedBalance = data.balance;
-      sessionStorage.setItem('balance', updatedBalance); // Store the updated balance in sessionStorage
-      dispatch(accountSlice.actions.setBalance(updatedBalance)); // Dispatch setBalance action
+      sessionStorage.setItem('balance', updatedBalance);
+      dispatch(accountSlice.actions.setBalance(updatedBalance));
 
-      return data; // Deposit data will be returned
+      return data; 
     } catch (err) {
       console.log('Error creating deposit:', err.message);
       throw err;
@@ -54,10 +54,10 @@ export const createWithdrawal = createAsyncThunk(
       if (error) throw error;
 
       const updatedBalance = data.balance;
-      sessionStorage.setItem('balance', updatedBalance); // Store the updated balance in sessionStorage
-      dispatch(accountSlice.actions.setBalance(updatedBalance)); // Dispatch setBalance action
+      sessionStorage.setItem('balance', updatedBalance); 
+      dispatch(accountSlice.actions.setBalance(updatedBalance)); 
 
-      return data; // Withdrawal data will be returned
+      return data;
     } catch (err) {
       console.log('Error creating withdrawal:', err.message);
       throw err;
@@ -84,10 +84,10 @@ export const createTransfer = createAsyncThunk(
       if (error) throw error;
 
       const updatedBalance = data.balance;
-      sessionStorage.setItem('balance', updatedBalance); // Store the updated balance in sessionStorage
-      dispatch(accountSlice.actions.setBalance(updatedBalance)); // Dispatch setBalance action
+      sessionStorage.setItem('balance', updatedBalance); 
+      dispatch(accountSlice.actions.setBalance(updatedBalance)); 
 
-      return data; // Transfer data will be returned
+      return data; 
     } catch (err) {
       console.log('Error creating transfer:', err.message);
       throw err;
@@ -113,7 +113,7 @@ export const accountSlice = createSlice({
       const hashedPin = hashPin(action.payload);
       state.pin = hashedPin;
     },
-    // Action to update the balance in the store (no need to declare setBalance manually here)
+    // Action to update the balance in the store 
     setBalance: (state, action) => {
       state.balance = action.payload;
     },
@@ -164,7 +164,7 @@ export const accountSlice = createSlice({
 });
 
 // Export actions from the slice
-export const { resetStatus, setPin } = accountSlice.actions; // Removed setBalance here
+export const { resetStatus, setPin } = accountSlice.actions; 
 
 // Selectors to access the state
 export const fetchDeposit = (state) => state.account.deposit;
@@ -172,7 +172,7 @@ export const fetchWithdrawal = (state) => state.account.withdrawal;
 export const fetchTransfer = (state) => state.account.transfer;
 export const fetchAccountStatus = (state) => state.account.status;
 export const fetchAccountError = (state) => state.account.error;
-export const fetchPin = (state) => state.account.pin;  // Access PIN if needed
-export const fetchBalance = (state) => state.account.balance;  // Access balance
+export const fetchPin = (state) => state.account.pin;  
+export const fetchBalance = (state) => state.account.balance;  
 
 export default accountSlice.reducer;

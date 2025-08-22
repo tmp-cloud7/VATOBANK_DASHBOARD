@@ -2,13 +2,13 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import api from '../../api/api'
 
 const initialState = {
-    user: JSON.parse(sessionStorage.getItem('user')) || null,  // Default to null if no user in sessionStorage
+    user: JSON.parse(sessionStorage.getItem('user')) || null, 
     status: 'IDLE'
 }
 
 // Register user with profile image
 export const registerUser = createAsyncThunk("/register", async (userDetails) => {
-    console.log('User Details:', userDetails);  // Debugging to check what is being sent
+    console.log('User Details:', userDetails); 
 
     try {
         const response = await api.post('/auth/register', userDetails, {
@@ -26,7 +26,7 @@ export const registerUser = createAsyncThunk("/register", async (userDetails) =>
     
 });
 
-// Authenticate user (for login)
+// Authenticate user for login
 export const authenticateUser = createAsyncThunk("/login", async (userDetails) => {
     try {
         const response = await api.post('/auth/login', userDetails);
@@ -64,24 +64,24 @@ const userSlice = createSlice({
     extraReducers(builder) {
         builder
             .addCase(registerUser.pending, (state) => {
-                state.status = 'PENDING';  // When registration is in progress
+                state.status = 'PENDING'; 
             })
             .addCase(registerUser.fulfilled, (state, action) => {
-                state.status = 'SUCCESS';  // When registration is successful
-                state.user = action.payload?.result?.user || null;  // Assuming the response contains the user data
+                state.status = 'SUCCESS';  
+                state.user = action.payload?.result?.user || null;  
             })
             .addCase(registerUser.rejected, (state) => {
-                state.status = 'FAILED';  // When registration fails
+                state.status = 'FAILED'; 
             })
             .addCase(authenticateUser.pending, (state) => {
-                state.status = 'PENDING';  // When login is in progress
+                state.status = 'PENDING';  
             })
             .addCase(authenticateUser.fulfilled, (state, action) => {
-                state.status = 'SUCCESS';  // When login is successful
-                state.user = action.payload.result.user;  // Assuming login response contains the user data
+                state.status = 'SUCCESS';  
+                state.user = action.payload.result.user;  
             })
             .addCase(authenticateUser.rejected, (state) => {
-                state.status = 'FAILED';  // When login fails
+                state.status = 'FAILED';  
             });
     }
 });

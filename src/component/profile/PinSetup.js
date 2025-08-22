@@ -12,9 +12,8 @@ const PinSetup = ({ setActiveForm }) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   
-  // Getting the status and error of pin operation (set or verify)
   const pinStatus = useSelector(fetchPinStatus);
-  const pinError = useSelector(fetchPinError); // To display error if any
+  const pinError = useSelector(fetchPinError); 
 
   // Reset pin status when the component is mounted
   useEffect(() => {
@@ -25,7 +24,6 @@ const PinSetup = ({ setActiveForm }) => {
     setActiveForm(null);
   };
 
-  // Handle setting the pin
   const handleSetPin = (e) => {
     e.preventDefault();
     if (pin !== pinConfirm) {
@@ -33,11 +31,9 @@ const PinSetup = ({ setActiveForm }) => {
       return;
     }
 
-    // Dispatching setPin async action
     dispatch(setPin({ pin }));
   };
 
-  // Handle verifying the pin
   const handleVerifyPin = (e) => {
     e.preventDefault();
 
@@ -46,11 +42,9 @@ const PinSetup = ({ setActiveForm }) => {
       return;
     }
 
-    // Dispatching verifyPin async action
     dispatch(verifyPin({ pin }));
   };
 
-  // Render status messages based on pin operation status
   const renderStatus = () => {
     switch (pinStatus) {
       case 'PENDING':
@@ -58,7 +52,6 @@ const PinSetup = ({ setActiveForm }) => {
       case 'SUCCESS':
         return <p className="text-green-500">Success!</p>;
       case 'FAILED':
-        // Assuming pinError is an object with properties like `message` or `error_code`
         if (pinError) {
           return (
             <div className="text-red-500">
@@ -85,7 +78,7 @@ const PinSetup = ({ setActiveForm }) => {
   return (
     <section className="flex items-center justify-center min-h-screen p-4 gap-6 bg-white border rounded-xl mt-12 sm:max-w-lg md:max-w-xl w-full mx-auto">
       <div className="relative w-full max-w-sm p-6 bg-white shadow-lg rounded-lg">
-        {/* Close button with absolute positioning */}
+  
         <button className="absolute top-2 right-2 text-gray-600" type="button" onClick={closePinForm}>
           <FaTimes size={24} />
         </button>

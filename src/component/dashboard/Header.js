@@ -24,7 +24,7 @@ const Header = () => {
     useEffect(() => {}, dispatch, openNav)
     useEffect(() => {
         if (!user) {
-            dispatch(authenticateUser({/* pass login credentials here if needed */}));
+            dispatch(authenticateUser({}));
         }
     }, [dispatch, user]);
   return (
@@ -38,9 +38,6 @@ const Header = () => {
                 <button onClick={()=> navigatePage('/dashboard/settings')} className='text-blue-500 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-500 rounded px-4 py-2"'>
                     <MdSettings size={30}/>
                 </button>
-                {/* <button className='text-blue-500 hover:text-blue-700 flex items-center text-xl transition duration-200 ease-in-out rounded-full px-4 py-2 focus:outline-none focus:ring-2 focus:ring-blue-500'>
-                    {user.firstname.substring(0, 1) + user.name.substring(0, 1)}
-                </button> */}
                 <button>
                     <MdNotificationsActive size={30}/>
                 </button>

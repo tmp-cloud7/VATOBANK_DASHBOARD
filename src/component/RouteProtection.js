@@ -17,23 +17,3 @@ const RouteProtection = ({ cmp: Component, redirectTo = "/login" }) => {
 
 export default RouteProtection;
 
-// import React, { useEffect } from 'react'
-// import { useNavigate } from 'react-router-dom'
-
-// export default function RouteProtection(props) {
-//     const navigate = useNavigate();
-//     let Cmp = props.cmp;
-//     useEffect(()=>{
-//         if(sessionStorage.getItem('user')) {
-//             Cmp = props.cmp;
-//             return;
-//         } else {
-//             navigate("/login");
-//         }
-//     },[])
-//   return (
-//     <>
-//         <Cmp/>
-//     </>
-//   )
-// }

@@ -52,8 +52,6 @@ const Login = () => {
     <main className='font-poppins font-roboto flex flex-col w-screen sm:w-full lg:w-screen md:w-screen h-screen justify-center items-center bg-gradient-to-r from-gray-300 to-white-500 relative'>
         {enableSpinner && <Spinner />}
         <section className='flex flex-col justify-center p-2 w-full w-3/5 gap-8 items-center sm:w-3/5 xl:w-2/5 sm:p-6'>
-            {/* <h1 className='text-xl font-bold flex flex-col items-center'>
-                <FaPiggyBank size={40}/>VATO BANK</h1> */}
             <form className='flex flex-col sm:min-w-500 flex-l w-full gap-4 bg-white p-5 rounded-md'>
                 <h2 >Login to your account</h2>
                 <InputComponent inputProp={{field: 'email', type: 'email', value: user.email, onChange: handleInputChange, label:'Email', placeholder: 'Enter Email Address'}}/>

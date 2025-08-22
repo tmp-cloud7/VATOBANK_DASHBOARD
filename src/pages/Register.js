@@ -88,8 +88,6 @@ const Register = () => {
     if (!user.dob) addError('dob', 'Date of birth is required');
     if (!user.sog) addError('sog', 'State of origin is required');
     if (!user.address) addError('address', 'Residence address is required');
-    
-    // Only validate image if skipImageCheck is false
 
     return { errors, hasErrors };
   };
@@ -107,16 +105,11 @@ const Register = () => {
   const signUp = async (e) => {
     e.preventDefault();
 
-    // First validate all fields except image
+    // validate all fields except image
     const { errors, hasErrors } = validateUser(user);
     setErrors(errors);
     if (hasErrors) return;
 
-    // Then specifically check for image
-    // if (!userFile) {
-    //   setErrors({...errors, profile_image: 'Profile image is required', status: true});
-    //   return;
-    // }
 
     const formData = new FormData();
     formData.append('name', user.name);

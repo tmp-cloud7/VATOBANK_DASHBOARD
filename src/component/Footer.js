@@ -32,7 +32,7 @@ const Footer = () => (
                   }`}
                 >
                   <a
-                    href={link.link} // Assuming each link has an 'href' property
+                    href={link.link} 
                     className="text-dimWhite hover:text-blue"
                   >
                     {link.name}

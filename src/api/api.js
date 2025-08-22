@@ -39,7 +39,6 @@ axiosInstance.interceptors.request.use((config) => {
     return Promise.reject(error);
 });
 
-// Wrap axiosInstance in an API function
 const api = (instance) => {
     return {
         get: (url, headers = {}) => instance.get(url, { headers }),
@@ -63,15 +62,3 @@ const api = (instance) => {
 export default api(axiosInstance);
 
 
-// axiosInstance.interceptors.request.use(
-//     (config) => {
-//         const token = sessionStorage.getItem('token');  // Get the Bearer token from sessionStorage
-//         if (token) {
-//             config.headers.Authorization = `Bearer ${token}`;  // Attach the Bearer token to the Authorization header
-//         }
-//         return config;  // Continue with the request
-//     },
-//     (error) => {
-//         return Promise.reject(error);  // Handle any request errors
-//     }
-// );

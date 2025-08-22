@@ -70,7 +70,6 @@ const validateUser = (user, userFile) => {
     }
 
     // Validate Profile Image (userFile)
-    // Uncomment if profile image is being validated
     if (!userFile || userFile === "" )  {
         addError('profile_image', 'Profile image is required');
     }
@@ -88,7 +87,6 @@ const isValidEmail = (email) => {
 // Phone Number Validation Function
 const isValidPhoneNumber = (phone_number) => {
     const regex = /(^0[789][01]\d{8}$)/;
-    // const regex = /(^\+234[789][01]\d{8}$)|(^0[789][01]\d{8}$)/;
     return regex.test(phone_number) && phone_number.length === 11;
 };
 

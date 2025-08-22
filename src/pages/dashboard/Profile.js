@@ -8,44 +8,39 @@ import avatar from "../../Assets/avatar.jpg";
 
 
 const Profile = () => {
-    const [user, setUser] = useState(null); // Store user data
-    const [status, setStatus] = useState('IDLE'); // Track status (IDLE, PENDING, SUCCESS, FAILED)
-    const [error, setError] = useState(null); // Store error messages
+    const [user, setUser] = useState(null);
+    const [status, setStatus] = useState('IDLE');
+    const [error, setError] = useState(null);
     const [activeForm, setActiveForm] = useState(null);
 
     // Fetch user profile data on component mount
     useEffect(() => {
       const fetchUserProfile = async () => {
-          setStatus('PENDING'); // Set status to pending when the request starts
+          setStatus('PENDING'); 
           try {
-              const response = await api.get('/auth/user'); // Fetch user data from the API
-              // console.log('User Profile Response:', response); // Log the response to verify the structure
-  
+              const response = await api.get('/auth/user');
+             
               if (response.data.success && response.data.result) {
-                  // Access the nested user data
                   const user = response.data.result.user;
-                  // console.log('User Data:', user); // Log the user data to verify it
-                  setUser(user); // Store user data
-                  setStatus('SUCCESS'); // Set status to success if data is fetched successfully
+                  setUser(user); 
+                  setStatus('SUCCESS');
               } else {
-                  setUser(null); // Explicitly setting null if no user data is available
+                  setUser(null);
                   setStatus('SUCCESS');
               }
-          } catch (err) {
-              // console.error('Error fetching user profile:', err); // Log the error
-              setError(err.message); // Handle any errors
+          } catch (err) {   
+              setError(err.message);
               setStatus('FAILED');
           }
       };
   
       fetchUserProfile();
-  }, []); // Empty dependency array to run the fetch only once when the component mounts
-  
-    // If profile data is loading or failed, show corresponding state
+  }, []); 
+    
     if (status === 'PENDING') {
         return (
             <div className="flex justify-center items-center h-screen">
-                <Spinner /> {/* Show spinner while fetching data */}
+                <Spinner />
             </div>
         );
     }
@@ -53,7 +48,7 @@ const Profile = () => {
     if (status === 'FAILED') {
         return (
             <div className="p-6 bg-white border rounded-xl shadow-lg mt-8">
-                <p className="text-red-500">{error}</p> {/* Show error message if fetching fails */}
+                <p className="text-red-500">{error}</p>
             </div>
         );
     }
@@ -77,7 +72,7 @@ const Profile = () => {
       ) : (
         <div className="w-32 h-32 rounded-full bg-gray-200 flex items-center justify-center border-4 border-blue-500 shadow-md">
         <img 
-          src={avatar} // Use the imported avatar image here
+          src={avatar}
           alt="Avatar" 
           className="w-full h-full object-cover rounded-full"
         />
