@@ -1,70 +1,223 @@
-# Getting Started with Create React App
+💳 VatoBank Dashboard — React Frontend
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A responsive and modern banking dashboard interface built with React and Tailwind CSS.
+The VatoBank Dashboard serves as the frontend for the VatoBank E-Banking system, providing authenticated users with real-time access to their account details, transactions, and other key features.
 
-## Available Scripts
+This project was later integrated into the main VatoBank Frontend, forming the core user interface of the application.
 
-In the project directory, you can run:
+🧠 Overview
 
-### `npm start`
+The VatoBank Dashboard is designed to deliver a clean, dynamic, and responsive banking experience.
+It connects to a Laravel RESTful backend API, fetching real-time financial data including:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Account summaries
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+Transaction history
 
-### `npm test`
+Transfer operations
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+User authentication
 
-### `npm run build`
+This project demonstrates strong understanding of:
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+React component design
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+State management
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+API integration
 
-### `npm run eject`
+Tailwind UI styling
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Secure token-based user sessions
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+⚙️ Core Features
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+🔐 Authentication & Authorization
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+Login and registration integrated with backend JWT tokens
 
-## Learn More
+Access control for authenticated pages only
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Persistent user sessions using sessionStorage
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+💼 User Dashboard
 
-### Code Splitting
+Displays real-time account balances and transaction summaries
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+Clean and structured UI with responsive grid layouts
 
-### Analyzing the Bundle Size
+Dynamic components for deposits, transfers, and withdrawals
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+💸 Transaction Management
 
-### Making a Progressive Web App
+Users can initiate transfers, deposits, and withdrawals
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+API-connected forms for backend transaction operations
 
-### Advanced Configuration
+Real-time updates after each transaction
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+🧾 Reusable UI Components
 
-### Deployment
+Modular structure with reusable React components
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Each page built with consistent styles and interactions
 
-### `npm run build` fails to minify
+🎨 Tailwind CSS Styling
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Fully styled with Tailwind CSS for fast, modern design
+
+Utility-first classes ensure responsiveness and scalability
+
+Custom styles defined in tailwind.config.js
+
+🔗 Backend Integration
+
+Axios-based API layer for communication with VatoBank Laravel Backend
+
+Centralized API logic in /src/api for maintainability
+
+Secure token passing with Bearer authorization header
+
+🛠️ Tech Stack
+
+Layer	Technology
+
+Frontend Framework	React (CRA)
+
+Styling	Tailwind CSS
+
+API Client	Axios
+
+Routing	React Router
+
+State Management	useState / Context API
+
+Build Tool	PostCSS
+
+Environment Config	.env for backend URL
+
+📁 Project Structure
+
+VATOBANK_DASHBOARD/
+
+│
+
+├── public/                     # Static assets
+
+├── src/
+
+│   ├── Assets/                 # Images, icons, and logos
+
+│   ├── api/                    # Axios setup and backend API calls
+
+│   ├── component/              # Reusable UI components (Header, Sidebar, etc.)
+
+│   ├── features/               # Functional modules (transactions, balances)
+
+│   ├── helper/register/        # Form handling utilities
+
+│   ├── pages/                  # Dashboard pages (Home, Profile, Transactions)
+
+│   ├── App.js                  # Root component
+
+│   ├── index.js                # React entry point
+
+│   ├── style.js                # Shared styled components
+
+│   ├── App.css / index.css     # Global styles
+
+│
+
+├── .env                        # Backend API URL
+
+├── tailwind.config.js          # Tailwind customization
+
+├── postcss.config.js           # PostCSS setup
+
+├── package.json
+
+└── README.md
+
+
+🧰 Installation & Setup
+
+1️⃣ Clone the Repository
+git clone https://github.com/tmp-cloud7/VATOBANK_DASHBOARD.git
+
+cd VATOBANK_DASHBOARD
+
+2️⃣ Install Dependencies
+
+npm install
+
+3️⃣ Set up Environment Variables
+
+Create a .env file in the root directory and add your backend API URL:
+
+REACT_APP_VATOBANK_SERVER_API_URL=https://vatobank-app-api.onrender.com/api
+
+4️⃣ Start Development Server
+
+npm start
+
+
+app will run on http://localhost:3000
+
+🔐 API Integration (Example)
+
+📦 Axios Setup — /src/api/api.js
+
+import axios from "axios";
+
+const axiosInstance = axios.create({
+  baseURL: process.env.REACT_APP_VATOBANK_SERVER_API_URL,
+  headers: { Accept: 'application/json' },
+});
+
+axiosInstance.interceptors.request.use((config) => {
+  const token = sessionStorage.getItem('access_token');
+  if (token) config.headers.Authorization = `Bearer ${token}`;
+  return config;
+});
+
+export default axiosInstance;
+
+🎨 UI Highlights
+
+Clean and minimalist interface with Tailwind styling
+
+Sidebar and top navigation for easy user flow
+
+Responsive layouts optimized for desktop and mobile
+
+Modern gradients and accent colors consistent with VatoBank branding
+
+🚀 Integration with VatoBank Frontend
+
+This Dashboard project was merged into the main VatoBank Frontend as its authenticated user interface.
+It powers:
+
+The post-login experience
+
+All banking operations (deposit, transfer, withdrawal)
+
+API-driven dashboards and reports
+
+📚 Objectives 
+
+During this project, the goals were to:
+
+Understand frontend-backend API interaction
+
+Implement secure user sessions using JWT
+
+Apply Tailwind CSS for rapid, responsive UI development
+
+Manage component-based React applications
+
+Integrate and deploy production-ready frontend builds
+
+🏁 Conclusion
+
+The VatoBank Dashboard is a scalable and efficient frontend designed to complement a Laravel banking API.
+It demonstrates real-world frontend engineering skills, including API integration, modular architecture, and responsive design principles — a solid foundation for modern fintech or data-driven dashboards.
